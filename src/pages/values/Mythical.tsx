@@ -1,12 +1,11 @@
-
-import { FaStar} from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
 const items = [
   {
     name: "Gravity",
     category: "Mythical",
     status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FGravity_Icon.webp&w=256&q=75" alt="Gravity" className="h-24 w-24 mx-auto" />, 
+    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FGravity_Icon.webp&w=256&q=75" alt="Gravity" className="h-24 w-24 mx-auto" />,
     value: 2000000,
     demand: "1/10",
   },
@@ -14,7 +13,7 @@ const items = [
     name: "Shadow",
     category: "Mythical",
     status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FShadow_Icon.webp&w=256&q=75" alt="Shadow" className="h-24 w-24 mx-auto" />, 
+    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FShadow_Icon.webp&w=256&q=75" alt="Shadow" className="h-24 w-24 mx-auto" />,
     value: 6500000,
     demand: "6/10",
   },
@@ -22,88 +21,15 @@ const items = [
     name: "Venom",
     category: "Mythical",
     status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FVenom_Icon.webp&w=256&q=75" alt="Venom" className="h-24 w-24 mx-auto" />, 
+    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FVenom_Icon.webp&w=256&q=75" alt="Venom" className="h-24 w-24 mx-auto" />,
     value: 8000000,
     demand: "7/10",
-  },
-  {
-    name: "Mammoth",
-    category: "Mythical",
-    status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FMammoth_Icon.webp&w=256&q=75" alt="Mammoth" className="h-24 w-24 mx-auto" />, 
-    value: 8000000,
-    demand: "6/10",
-  },
-  {
-    name: "Spirit",
-    category: "Mythical",
-    status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FSpirit_Icon.webp&w=256&q=75" alt="Spirit" className="h-24 w-24 mx-auto" />, 
-    value: 10000000,
-    demand: "7/10",
-  },
-  {
-    name: "T-Rex",
-    category: "Mythical",
-    status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FT-Rex_Icon.webp&w=256&q=75" alt="T-Rex" className="h-24 w-24 mx-auto" />, 
-    value: 20000000,
-    demand: "8/10",
-  },
-
-  {
-    name: "Dough",
-    category: "Mythical",
-    status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FDough_Icon.webp&w=256&q=75" alt="T-Rex" className="h-24 w-24 mx-auto" />, 
-    value: 20000000,
-    demand: "8/10",
-  },
-  {
-    name: "Control",
-    category: "Mythical",
-    status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FControl_Icon.webp&w=256&q=75" alt="T-Rex" className="h-24 w-24 mx-auto" />, 
-    value: 40000000,
-    demand: "8/10",
-  },
-  {
-    name: "Leopard",
-    category: "Mythical",
-    status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FLeopard_Icon.webp&w=256&q=75" alt="T-Rex" className="h-24 w-24 mx-auto" />, 
-    value: 55000000,
-    demand: "8/10",
-  },
-  {
-    name: "Gas",
-    category: "Mythical",
-    status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FGas_Icon.webp&w=256&q=75" alt="T-Rex" className="h-24 w-24 mx-auto" />, 
-    value: 85000000,
-    demand: "8/10",
-  },
-  {
-    name: "Yeti",
-    category: "Mythical",
-    status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FYeti_Icon.webp&w=256&q=75" alt="T-Rex" className="h-24 w-24 mx-auto" />, 
-    value: 140000000,
-    demand: "8/10",
-  },
-  {
-    name: "Kitsune",
-    category: "Mythical",
-    status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FKitsune_Icon.webp&w=256&q=75" alt="T-Rex" className="h-24 w-24 mx-auto" />, 
-    value: 215000000,
-    demand: "8/10",
   },
   {
     name: "East Dragon",
     category: "Mythical",
     status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FEast%20Dragon_Icon.webp&w=256&q=75" alt="East Dragon" className="h-24 w-24 mx-auto" />, 
+    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FEast%20Dragon_Icon.webp&w=256&q=75" alt="East Dragon" className="h-24 w-24 mx-auto" />,
     value: 860000000,
     demand: "10/10",
   },
@@ -111,10 +37,10 @@ const items = [
     name: "West Dragon",
     category: "Mythical",
     status: "Stable",
-    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FWest%20Dragon_Icon.webp&w=256&q=75" alt="West Dragon" className="h-24 w-24 mx-auto" />, 
+    icon: <img src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FWest%20Dragon_Icon.webp&w=256&q=75" alt="West Dragon" className="h-24 w-24 mx-auto" />,
     value: 1000000000,
     demand: "10/10",
-  },
+  }
 ];
 
 export function MythicalPage() {
@@ -147,11 +73,24 @@ export function MythicalPage() {
             </select>
 
             {/* Favorite Button */}
-            <button className="absolute bottom-2 right-2 text-gray-400 hover:text-yellow-400">
+            <button className="absolute bottom-2 right-2 text-gray-400 hover:text-yellow-400" aria-label={`Favorite ${item.name}`}>
               <FaStar />
             </button>
           </div>
         ))}
+      </div>
+
+      {/* Google AdSense */}
+      <div className="mt-6">
+        <ins className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-client="ca-pub-4679619533362780"
+          data-ad-slot="1234567890"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       </div>
     </div>
   );
