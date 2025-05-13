@@ -1,4 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { motion } from 'framer-motion';
+
+
 import { Navbar } from './components/Navbar';
 import { CommonPage } from './pages/values/Common';
 import { UncommonPage } from './pages/values/Uncommon';
@@ -14,6 +18,12 @@ import { ForgotPasswordPage } from './pages/auth/ForgotPassword';
 import { FAQPage } from './pages/information/FAQ';
 import { UsageGuidePage } from './pages/information/UsageGuide';
 import { DonatePage } from './pages/Donate';
+
+const images = [
+  "https://bloxfruitsvalues.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F3.8c8b2355.webp&w=1920&q=75",
+  "https://bloxfruitsvalues.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F5.ceb66b51.webp&w=1920&q=75",
+  "https://bloxfruitsvalues.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F2.50c3ed77.webp&w=1920&q=75"
+];
 import { TradeCalculator } from './components/TradeCalculator';
 
 
@@ -83,12 +93,47 @@ const App = () => {
             <Route path="/guide" element={<UsageGuidePage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/donate" element={<DonatePage />} />
-
           </Routes>
         </main>
       </div>
     </Router>
   );
 };
+
+      {/* Moving & Fading Image Animation */}
+      <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-10">
+        {images.map((img, index) => (
+          <motion.img
+            key={index}
+            src={img}
+            className="w-24 h-24 md:w-32 md:h-32 rounded-lg border-4 border-blue-500 object-cover"
+            animate={{ x: [0, 20, -20, 0], opacity: [0, 1], scale: [0.9, 1] }}
+            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+          />
+        ))}
+      </div>
+
+      {/* Countdown Timer Animation */}
+      <motion.div className="text-center py-5"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1 }}>
+        <h3 className="text-xl">Stock Reset Countdown</h3>
+        <p className="text-4xl font-bold">01:24:01</p>
+      </motion.div>
+
+      {/* Category Buttons with Hover Effect */}
+      <div className="flex justify-center gap-5 mt-5 flex-wrap">
+        {["Common", "Uncommon", "Rare", "Legendary", "Mythical", "Gamepass"].map((category, index) => (
+          <motion.div
+            key={index}
+            className="px-5 py-3 bg-gray-700 rounded-lg text-center text-white text-lg shadow-lg cursor-pointer"
+            whileHover={{ scale: 1.1, backgroundColor: "#4F46E5" }}
+            transition={{ duration: 0.3 }}
+          >
+            {category}
+          </motion.div>
+        ))}
+      </div>
 
 export default App;
