@@ -62,7 +62,14 @@ const HomePage = () => {
       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">The Most Trusted Value List for Blox Fruits</h1>
       <p className="text-sm sm:text-base mt-1.5 text-gray-300 max-w-md mx-auto">NEW! Check out our trade calculator!</p>
       <h2 className="text-base sm:text-lg mt-2 text-white">Please Donate to Support Us</h2>
-
+      <div className="container mx-auto px-3 sm:px-6 mt-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 text-center">
+            Trade Calculator
+          </h2>
+          <TradeCalculator />
+        </div>
+      </div>
       <div className="flex flex-wrap justify-center items-center gap-4 mt-6">
         {images.map((img, idx) => (
           <motion.img
