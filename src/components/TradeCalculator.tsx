@@ -68,20 +68,20 @@ export function TradeCalculator() {
   const EmptySlot = ({ onClick }: { onClick: () => void }) => (
     <div
       onClick={onClick}
-      className="w-full h-32 md:w-32 md:h-32 bg-blue-800/30 rounded-lg flex items-center justify-center cursor-pointer hover:bg-blue-800/40 transition-colors"
+      className="w-full h-24 sm:h-28 md:h-32 bg-blue-800/30 rounded-lg flex items-center justify-center cursor-pointer hover:bg-blue-800/40 transition-colors"
     >
-      <Plus className="w-8 h-8 text-blue-400" />
+      <Plus className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-400" />
     </div>
   );
 
   const FilledSlot = ({ item, onRemove }: { item: Item; onRemove: () => void }) => (
-    <div className="w-full h-32 md:w-32 md:h-32 bg-gray-700 rounded-lg p-2 relative group">
+    <div className="w-full h-24 sm:h-28 md:h-32 bg-gray-700 rounded-lg p-2 relative group">
       <img src={item.imageUrl} alt={item.name} className="w-full h-full object-contain" />
       <div className="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
-        <span className="text-white text-sm">{item.value.toLocaleString()}</span>
+        <span className="text-white text-xs sm:text-sm md:text-sm">{item.value.toLocaleString()}</span>
         <button
           onClick={onRemove}
-          className="px-3 py-1 bg-red-500 text-white text-xs rounded hover:bg-red-600"
+          className="px-2 py-1 bg-red-500 text-white text-xs rounded hover:bg-red-600"
         >
           Remove
         </button>
@@ -110,9 +110,9 @@ export function TradeCalculator() {
     };
 
     return (
-      <div className="flex-1">
-        <h2 className="text-white text-xl font-semibold mb-4">{side === 'you' ? 'You' : 'Them'}</h2>
-        <div className="grid grid-cols-2 gap-4">
+      <div className="flex-1 min-w-[120px]">
+        <h2 className="text-white text-lg sm:text-xl font-semibold mb-4">{side === 'you' ? 'You' : 'Them'}</h2>
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {tradeSlot.items.map((item, index) =>
             item ? (
               <FilledSlot key={index} item={item} onRemove={() => handleRemoveItem(index)} />
@@ -127,14 +127,14 @@ export function TradeCalculator() {
             )
           )}
         </div>
-        <div className="mt-4 space-y-2">
-          <div className="flex justify-between text-white">
+        <div className="mt-3 sm:mt-4 space-y-1">
+          <div className="flex justify-between text-white text-sm sm:text-base">
             <span>PRICE:</span>
             <span className="text-blue-400">${tradeSlot.totalPrice.toLocaleString()}</span>
           </div>
-          <div className="flex justify-between text-white">
+          <div className="flex justify-between text-white text-sm sm:text-base">
             <span>VALUE:</span>
-            <span className="text-white">{tradeSlot.totalValue.toLocaleString()}</span>
+            <span>{tradeSlot.totalValue.toLocaleString()}</span>
           </div>
         </div>
       </div>
@@ -148,38 +148,36 @@ export function TradeCalculator() {
       : valueDifference > 0
       ? 'You are overpaying'
       : 'They are overpaying';
-  
-   const statusColor =
-     Math.abs(valueDifference) < 100000 ? 'text-green-500' : 'text-red-500';
 
-   return (
-     <>
-       <div className="bg-gray-800/50 p-4 md:p-8 rounded-lg">
-         <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-           <TradeSection side="you" tradeSlot={yourTrade} setTradeSlot={setYourTrade} />
-           <div className="flex flex-col items-center justify-center">
-             <div className={cn('text-lg font-semibold mb-2', statusColor)}>
-               {tradeStatus}
-             </div>
-             <div className="text-gray-400 text-sm">
-               Difference: {Math.abs(valueDifference).toLocaleString()}
-             </div>
-           </div>
-           <TradeSection side="them" tradeSlot={theirTrade} setTradeSlot={setTheirTrade} />
-         </div>
-       </div>
+  const statusColor =
+    Math.abs(valueDifference) < 100000 ? 'text-green-500' : 'text-red-500';
 
-       <ItemSelectModal
-         open={modalOpen}
-         onClose={() => {
-           setModalOpen(false);
-           setActiveSlot(null);
-         }}
-         onSelect={handleItemSelect}
-         selectedCategory={selectedCategory}
-         onCategoryChange={setSelectedCategory}
-         categories={categories}
-       />
-     </>
-   );
+  return (
+    <>
+      <div className="bg-gray-800/50 p-4 rounded-lg max-w-screen-sm mx-auto">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <TradeSection side="you" tradeSlot={yourTrade} setTradeSlot={setYourTrade} />
+          <div className="flex flex-col items-center justify-center">
+            <div className={cn('text-lg font-semibold mb-2', statusColor)}>{tradeStatus}</div>
+            <div className="text-gray-400 text-sm">
+              Difference: {Math.abs(valueDifference).toLocaleString()}
+            </div>
+          </div>
+          <TradeSection side="them" tradeSlot={theirTrade} setTradeSlot={setTheirTrade} />
+        </div>
+      </div>
+
+      <ItemSelectModal
+        open={modalOpen}
+        onClose={() => {
+          setModalOpen(false);
+          setActiveSlot(null);
+        }}
+        onSelect={handleItemSelect}
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+        categories={categories}
+      />
+    </>
+  );
 }

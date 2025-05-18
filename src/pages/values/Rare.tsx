@@ -148,6 +148,10 @@ export function RarePage() {
           data-ad-client="ca-pub-4679619533362780"
           data-ad-slot="1234567890"
         ></ins>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
         <script
           dangerouslySetInnerHTML={{
             __html: "(adsbygoogle = window.adsbygoogle || []).push({});",

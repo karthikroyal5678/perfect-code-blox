@@ -83,8 +83,9 @@ export function GamepassPage() {
     script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4679619533362780";
     script.crossOrigin = "anonymous";
     document.head.appendChild(script);
+    
   }, []);
-
+  
   return (
     <div className="container mx-auto px-4 py-6">
       <h1 className="text-3xl font-bold text-white mb-6">Gamepass</h1>
