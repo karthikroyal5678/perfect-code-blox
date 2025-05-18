@@ -31,8 +31,7 @@ const HomePage = () => {
       const script = document.createElement("script");
       script.id = scriptId;
       script.async = true;
-      script.src =
-        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4679619533362780";
+      script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4679619533362780";
       script.crossOrigin = "anonymous";
       document.head.appendChild(script);
 
@@ -59,23 +58,18 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="text-center py-4 px-3 sm:px-6 lg:px-8">
-      <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">
-        The Most Trusted Value List for Blox Fruits
-      </h1>
-      <p className="text-sm sm:text-base mt-1.5 text-gray-300 max-w-md mx-auto">
-        NEW! Check out our trade calculator!
-      </p>
+    <div className="flex flex-col items-center text-center py-6 px-4 sm:px-6 lg:px-8">
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">The Most Trusted Value List for Blox Fruits</h1>
+      <p className="text-sm sm:text-base mt-1.5 text-gray-300 max-w-md mx-auto">NEW! Check out our trade calculator!</p>
       <h2 className="text-base sm:text-lg mt-2 text-white">Please Donate to Support Us</h2>
 
-      {/* Animated Images */}
-      <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mt-4">
+      <div className="flex flex-wrap justify-center items-center gap-4 mt-6">
         {images.map((img, idx) => (
           <motion.img
             key={idx}
             src={img}
             alt={`Blox Fruit ${idx + 1}`}
-            className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-md border-2 border-blue-500 object-cover"
+            className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-md border-2 border-blue-500 object-cover"
             animate={{ x: [0, 6, -6, 0], opacity: [0.8, 1], scale: [0.95, 1] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
             loading="lazy"
@@ -83,23 +77,16 @@ const HomePage = () => {
         ))}
       </div>
 
-      {/* Countdown Timer */}
-      <motion.div
-        className="text-center py-2 sm:py-3 mt-4"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h3 className="text-sm sm:text-base lg:text-lg text-white">Stock Reset Countdown</h3>
-        <p className="text-lg sm:text-xl lg:text-2xl font-bold text-white mt-1">01:24:01</p>
+      <motion.div className="py-4" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.6 }}>
+        <h3 className="text-lg sm:text-xl lg:text-2xl text-white">Stock Reset Countdown</h3>
+        <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mt-2">01:24:01</p>
       </motion.div>
 
-      {/* Category Buttons */}
-      <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-3 max-w-3xl mx-auto">
+      <div className="flex flex-wrap justify-center gap-3 mt-6">
         {["Common", "Uncommon", "Rare", "Legendary", "Mythical", "Gamepass"].map((cat, idx) => (
           <motion.div
             key={idx}
-            className="px-2.5 py-1 sm:px-3 sm:py-1.5 bg-gray-700 rounded-md text-white text-xs sm:text-sm font-medium shadow-sm cursor-pointer"
+            className="px-4 py-2 bg-gray-700 rounded-md text-white text-sm font-medium shadow-sm cursor-pointer"
             whileHover={{ scale: 1.05, backgroundColor: "#4F46E5" }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
@@ -110,58 +97,6 @@ const HomePage = () => {
           </motion.div>
         ))}
       </div>
-
-      {/* Trade Calculator Section */}
-      <div className="container mx-auto px-3 sm:px-6 mt-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 text-center">
-            Trade Calculator
-          </h2>
-          <TradeCalculator />
-
-          <div className="mt-6 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            <div className="bg-gray-800/70 p-2.5 sm:p-3 rounded-md">
-              <h3 className="text-sm sm:text-base font-semibold text-white mb-1.5">How to Use</h3>
-              <ul className="text-gray-300 text-xs sm:text-sm space-y-1 leading-tight">
-                <li>1. Click the + button to add items to either side</li>
-                <li>2. Select items from your inventory or search for specific items</li>
-                <li>3. Calculator computes values and differences</li>
-                <li>
-                  4. Green = fair trade, Yellow = uneven, Red = very uneven
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-gray-800/70 p-2.5 sm:p-3 rounded-md">
-              <h3 className="text-sm sm:text-base font-semibold text-white mb-1.5">
-                Trading Tips
-              </h3>
-              <ul className="text-gray-300 text-xs sm:text-sm space-y-1 leading-tight">
-                <li>• Verify items match trade window and calculator</li>
-                <li>• Consider demand ratings with values</li>
-                <li>• Be cautious of trades too good to be true</li>
-                <li>• Double-check before confirming trades</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Google AdSense Ad Container */}
-      <div className="my-4 sm:my-6 flex justify-center">
-        <ins
-          className="adsbygoogle block w-full"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-          data-ad-client="ca-pub-4679619533362780"
-          data-ad-slot="3961900505"
-        ></ins>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: "(adsbygoogle = window.adsbygoogle || []).push({});",
-          }}
-        ></script>
-      </div>
     </div>
   );
 };
@@ -169,12 +104,9 @@ const HomePage = () => {
 const App = () => {
   return (
     <Router>
-      {/* Outer container: flex column, full viewport height */}
       <div className="flex flex-col min-h-screen bg-gray-900 text-white">
-        {/* Navbar stays at the top */}
         <Navbar />
-        {/* Main content flex-grow to fill available space, scrollable */}
-        <main className="flex-grow overflow-auto max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3">
+        <main className="flex-grow overflow-auto px-4 sm:px-6 lg:px-8 py-6">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/calculator" element={<CalculatorPage />} />

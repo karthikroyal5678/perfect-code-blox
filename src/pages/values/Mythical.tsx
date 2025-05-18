@@ -6,13 +6,7 @@ const items = [
     name: "Gravity",
     category: "Mythical",
     status: "Stable",
-    icon: (
-      <img
-        src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FGravity_Icon.webp&w=256&q=75"
-        alt="Gravity"
-        className="h-24 w-24 mx-auto"
-      />
-    ),
+    icon: "https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FGravity_Icon.webp&w=256&q=75",
     value: 2000000,
     demand: "1/10",
   },
@@ -20,13 +14,7 @@ const items = [
     name: "Shadow",
     category: "Mythical",
     status: "Stable",
-    icon: (
-      <img
-        src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FShadow_Icon.webp&w=256&q=75"
-        alt="Shadow"
-        className="h-24 w-24 mx-auto"
-      />
-    ),
+    icon: "https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FShadow_Icon.webp&w=256&q=75",
     value: 6500000,
     demand: "6/10",
   },
@@ -34,13 +22,7 @@ const items = [
     name: "Venom",
     category: "Mythical",
     status: "Stable",
-    icon: (
-      <img
-        src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FVenom_Icon.webp&w=256&q=75"
-        alt="Venom"
-        className="h-24 w-24 mx-auto"
-      />
-    ),
+    icon: "https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FVenom_Icon.webp&w=256&q=75",
     value: 8000000,
     demand: "7/10",
   },
@@ -48,13 +30,7 @@ const items = [
     name: "East Dragon",
     category: "Mythical",
     status: "Stable",
-    icon: (
-      <img
-        src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FEast%20Dragon_Icon.webp&w=256&q=75"
-        alt="East Dragon"
-        className="h-24 w-24 mx-auto"
-      />
-    ),
+    icon: "https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FEast%20Dragon_Icon.webp&w=256&q=75",
     value: 860000000,
     demand: "10/10",
   },
@@ -62,13 +38,7 @@ const items = [
     name: "West Dragon",
     category: "Mythical",
     status: "Stable",
-    icon: (
-      <img
-        src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FWest%20Dragon_Icon.webp&w=256&q=75"
-        alt="West Dragon"
-        className="h-24 w-24 mx-auto"
-      />
-    ),
+    icon: "https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FMythical%2FWest%20Dragon_Icon.webp&w=256&q=75",
     value: 1000000000,
     demand: "10/10",
   },
@@ -90,16 +60,16 @@ export function MythicalPage() {
   useAdsense();
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
-      <div className="container mx-auto px-4 py-6">
-        <h1 className="text-4xl font-bold mb-6 text-center">Mythical Items</h1>
+    <div className="min-h-screen bg-gray-950 text-white flex flex-col items-center">
+      <div className="container px-4 py-6">
+        <h1 className="text-4xl font-bold mb-8 text-center">Mythical Items</h1>
 
         {/* Grid container for items */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {items.map((item) => (
             <div
               key={item.name}
-              className="bg-gray-900 p-4 rounded-lg shadow-lg relative transition-transform transform hover:scale-105 focus:scale-105"
+              className="bg-gray-900 p-6 rounded-2xl shadow-lg flex flex-col items-center w-full max-w-xs transition-transform transform hover:scale-105 focus:scale-105"
               tabIndex={0}
             >
               {/* Status Indicator */}
@@ -108,16 +78,22 @@ export function MythicalPage() {
               </span>
 
               {/* Item Icon */}
-              <div className="flex justify-center mt-2">{item.icon}</div>
+              <img
+                src={item.icon}
+                alt={item.name}
+                className="h-24 w-24 object-contain mb-4"
+              />
 
               {/* Item Name */}
-              <h2 className="text-xl font-bold mt-4">{item.name}</h2>
+              <h2 className="text-xl font-bold mb-2 text-center">{item.name}</h2>
 
               {/* Value & Demand */}
-              <p className="text-gray-400 text-lg mt-1">
+              <p className="text-gray-400 text-lg mb-1 text-center">
                 Value: {item.value.toLocaleString()}
               </p>
-              <p className="text-gray-400 mb-2">Demand: {item.demand}</p>
+              <p className="text-gray-400 mb-4 text-center">
+                Demand: {item.demand}
+              </p>
 
               {/* Dropdown for Value Type */}
               <select className="w-full bg-gray-800 text-white p-2 rounded mb-4">
@@ -127,10 +103,10 @@ export function MythicalPage() {
 
               {/* Favorite Button */}
               <button
-                className="absolute bottom-2 right-2 text-gray-400 hover:text-yellow-400 transition-colors"
+                className="text-gray-400 hover:text-yellow-400 transition-colors"
                 aria-label={`Favorite ${item.name}`}
               >
-                <FaStar size={20} />
+                <FaStar size={24} />
               </button>
             </div>
           ))}
@@ -151,3 +127,5 @@ export function MythicalPage() {
     </div>
   );
 }
+
+export default MythicalPage;
