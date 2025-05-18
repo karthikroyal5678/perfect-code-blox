@@ -116,8 +116,12 @@ export function LegendaryPage() {
         {items.map((item) => (
           <div key={item.name} className="bg-gray-900 p-4 rounded-lg shadow-lg relative">
             {/* Status Indicator */}
-            <span className="absolute top-2 right-2 text-green-500 text-xs font-bold">
-              🟢 {item.status}
+            <span
+              className={`absolute top-2 right-2 text-xs font-bold ${
+                item.status === "Underpaid" ? "text-red-500" : "text-green-500"
+              }`}
+            >
+              {item.status === "Stable" ? "🟢" : "⚠️"} {item.status}
             </span>
 
             {/* Item Icon */}
