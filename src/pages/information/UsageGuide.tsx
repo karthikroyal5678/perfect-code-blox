@@ -1,17 +1,18 @@
-import React from 'react';
+import React from "react";
 
 export function UsageGuidePage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-white mb-8">Usage Guide</h1>
-      
-      <div className="grid gap-8">
+    <div className="min-h-screen flex flex-col bg-gray-900 py-8 px-4">
+      <h1 className="text-3xl font-bold text-white mb-8 text-center">
+        Usage Guide
+      </h1>
+
+      <div className="flex-grow max-w-4xl mx-auto w-full overflow-y-auto space-y-8">
         <section className="bg-gray-800/50 rounded-lg p-6">
           <h2 className="text-2xl font-semibold text-white mb-4">Getting Started</h2>
           <div className="prose prose-invert">
             <p className="text-gray-300">
-              Welcome to Blox Fruits Values! This guide will help you understand how to use our website effectively
-              to make informed trading decisions in Blox Fruits.
+              Welcome to Blox Fruits Values! This guide will help you understand how to use our website effectively to make informed trading decisions in Blox Fruits.
             </p>
           </div>
         </section>

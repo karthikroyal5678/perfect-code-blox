@@ -63,6 +63,9 @@ export function TradeCalculator() {
       totalValue,
       totalPrice: totalValue,
     });
+
+    setModalOpen(false);
+    setActiveSlot(null);
   };
 
   const EmptySlot = ({ onClick }: { onClick: () => void }) => (
@@ -110,7 +113,7 @@ export function TradeCalculator() {
     };
 
     return (
-      <div className="flex-1 min-w-[120px]">
+      <div className="w-full mb-6 flex flex-col">
         <h2 className="text-white text-lg sm:text-xl font-semibold mb-4">{side === 'you' ? 'You' : 'Them'}</h2>
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {tradeSlot.items.map((item, index) =>
@@ -154,17 +157,15 @@ export function TradeCalculator() {
 
   return (
     <>
-      <div className="bg-gray-800/50 p-4 rounded-lg max-w-screen-sm mx-auto">
-        <div className="flex flex-col sm:flex-row gap-4">
-          <TradeSection side="you" tradeSlot={yourTrade} setTradeSlot={setYourTrade} />
-          <div className="flex flex-col items-center justify-center">
-            <div className={cn('text-lg font-semibold mb-2', statusColor)}>{tradeStatus}</div>
-            <div className="text-gray-400 text-sm">
-              Difference: {Math.abs(valueDifference).toLocaleString()}
-            </div>
+      <div className="flex flex-col h-screen overflow-auto max-w-full p-6 bg-gray-800/50 rounded-lg mx-auto gap-6">
+        <TradeSection side="you" tradeSlot={yourTrade} setTradeSlot={setYourTrade} />
+        <div className="w-full mb-6 flex flex-col items-center justify-center">
+          <div className={cn('text-lg font-semibold mb-2 text-center', statusColor)}>{tradeStatus}</div>
+          <div className="text-gray-400 text-sm text-center">
+            Difference: {Math.abs(valueDifference).toLocaleString()}
           </div>
-          <TradeSection side="them" tradeSlot={theirTrade} setTradeSlot={setTheirTrade} />
         </div>
+        <TradeSection side="them" tradeSlot={theirTrade} setTradeSlot={setTheirTrade} />
       </div>
 
       <ItemSelectModal

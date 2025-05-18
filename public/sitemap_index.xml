@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml-stylesheet type="text/css" href="styles.css"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap-image/1.1">
     <url>
         <loc>https://bloxfruitsitems.com/</loc>
     </url>
     <url>
-        <loc>https://bloxfruitsitems.com/calculator</loc>
+        <loc>https://bloxfruitsitems.com/calculator.com</loc>
     </url>
     <url>
-        <loc>https://bloxfruitsitems.com/values/common</loc>
+        <loc>https://bloxfruitsitems.com/values/common.com</loc>
     </url>
     <url>
         <loc>https://bloxfruitsitems.com/values/uncommon</loc>
     </url>
     <url>
-        <loc>https://bloxfruitsitems.com/values/rare</loc>
+        <loc>https://bloxfruitsitems.com/values/rare.com</loc>
     </url>
     <url>
-        <loc>https://bloxfruitsitems.com/values/legendary</loc>
+        <loc>https://bloxfruitsitems.com/values/legendary.com</loc>
     </url>
     <url>
         <loc>https://bloxfruitsitems.com/values/mythical</loc>
@@ -25,19 +30,19 @@
         <loc>https://bloxfruitsitems.com/values/limited</loc>
     </url>
     <url>
-        <loc>https://bloxfruitsitems.com/guide</loc>
+        <loc>https://bloxfruitsitems.com/guide.com</loc>
     </url>
     <url>
-        <loc>https://bloxfruitsitems.com/login</loc>
+        <loc>https://bloxfruitsitems.com/login.com</loc>
     </url>
     <url>
-        <loc>https://bloxfruitsitems.com/register</loc>
+        <loc>https://bloxfruitsitems.com/register.com</loc>
     </url>
     <url>
-        <loc>https://bloxfruitsitems.com/forgot-password</loc>
+        <loc>https://bloxfruitsitems.com/forgot-password.com</loc>
     </url>
     <url>
-        <loc>https://bloxfruitsitems.com/donate</loc>
+        <loc>https://bloxfruitsitems.com/donate.com</loc>
     </url>
     <url>
         <loc>https://bloxfruitsitems.com/search?query=blox+fruit+value</loc>

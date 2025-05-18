@@ -1,12 +1,19 @@
 import { FaStar } from "react-icons/fa";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const items = [
   {
     name: "Rocket",
     category: "Common",
     status: "Stable",
-    icon: "https://bloxfruitsvalues.org/pfruits/Permanent-Rocket.webp",
+    icon: (
+      <img
+        src="https://bloxfruitsvalues.org/pfruits/Permanent-Rocket.webp"
+        className="h-24 w-24 object-contain mx-auto"
+        alt="Rocket"
+        loading="lazy"
+      />
+    ),
     value: 5000,
     demand: "1/10",
   },
@@ -14,7 +21,14 @@ const items = [
     name: "Spin",
     category: "Common",
     status: "Stable",
-    icon: "https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FCommon%2FSpin_Icon.webp&w=256&q=75",
+    icon: (
+      <img
+        src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FCommon%2FSpin_Icon.webp&w=256&q=75"
+        className="h-24 w-24 object-contain mx-auto"
+        alt="Spin"
+        loading="lazy"
+      />
+    ),
     value: 7500,
     demand: "1/10",
   },
@@ -22,7 +36,14 @@ const items = [
     name: "Blade",
     category: "Common",
     status: "Stable",
-    icon: "https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FCommon%2FBlade_Icon.webp&w=256&q=75",
+    icon: (
+      <img
+        src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FCommon%2FBlade_Icon.webp&w=256&q=75"
+        className="h-24 w-24 object-contain mx-auto"
+        alt="Blade"
+        loading="lazy"
+      />
+    ),
     value: 50000,
     demand: "1/10",
   },
@@ -30,7 +51,14 @@ const items = [
     name: "Spring",
     category: "Common",
     status: "Stable",
-    icon: "https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FCommon%2FSpring_Icon.webp&w=256&q=75",
+    icon: (
+      <img
+        src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FCommon%2FSpring_Icon.webp&w=256&q=75"
+        className="h-24 w-24 object-contain mx-auto"
+        alt="Spring"
+        loading="lazy"
+      />
+    ),
     value: 60000,
     demand: "1/10",
   },
@@ -38,7 +66,14 @@ const items = [
     name: "Bomb",
     category: "Common",
     status: "Stable",
-    icon: "https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FCommon%2FBomb_Icon.webp&w=256&q=75",
+    icon: (
+      <img
+        src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FCommon%2FBomb_Icon.webp&w=256&q=75"
+        className="h-24 w-24 object-contain mx-auto"
+        alt="Bomb"
+        loading="lazy"
+      />
+    ),
     value: 80000,
     demand: "1/10",
   },
@@ -46,7 +81,14 @@ const items = [
     name: "Smoke",
     category: "Common",
     status: "Stable",
-    icon: "https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FCommon%2FSmoke_Icon.webp&w=256&q=75",
+    icon: (
+      <img
+        src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FCommon%2FSmoke_Icon.webp&w=256&q=75"
+        className="h-24 w-24 object-contain mx-auto"
+        alt="Smoke"
+        loading="lazy"
+      />
+    ),
     value: 100000,
     demand: "1/10",
   },
@@ -54,126 +96,80 @@ const items = [
     name: "Spike",
     category: "Common",
     status: "Stable",
-    icon: "https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FCommon%2FSpike_Icon.webp&w=256&q=75",
+    icon: (
+      <img
+        src="https://bloxfruitsvalues.com/_next/image?url=%2Fassets%2Ffruits%2FCommon%2FSpike_Icon.webp&w=256&q=75"
+        className="h-24 w-24 object-contain mx-auto"
+        alt="Spike"
+        loading="lazy"
+      />
+    ),
     value: 5000,
     demand: "1/10",
   },
 ];
 
 export function CommonPage() {
+  const adRef = useRef(null);
+
   useEffect(() => {
-    // Ensure AdSense script is loaded once
-    const scriptId = "adsbygoogle-script";
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement("script");
-      script.id = scriptId;
-      script.async = true;
-      script.src =
-        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4679619533362780";
-      script.crossOrigin = "anonymous";
-      document.head.appendChild(script);
+    const script = document.createElement("script");
+    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4679619533362780";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    document.head.appendChild(script);
 
-      script.onload = () => {
-        try {
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {
-          console.error("AdSense script load error:", e);
-        }
-      };
-
-      return () => {
-        if (document.head.contains(script)) {
-          document.head.removeChild(script);
-        }
-      };
-    } else {
+    script.onload = () => {
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {
-        console.error("AdSense push error:", e);
+        console.error("AdSense error:", e);
       }
-    }
+    };
+
+    script.onerror = () => {
+      console.error("Failed to load AdSense script");
+    };
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-6 max-w-7xl bg-gray-800 min-h-screen">
-      <h1 className="text-2xl sm:text-3xl font-bold text-white mb-6">Common Items</h1>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+    <div className="flex flex-col items-center min-h-screen bg-gray-900 py-10 px-4 sm:px-8">
+      <h1 className="text-4xl font-bold text-white mb-10 text-center">Common Items</h1>
+      <div className="mb-8 w-full max-w-[970px]">
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-client="ca-pub-4679619533362780"
+          data-ad-slot="3961900505"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+          ref={adRef}
+        ></ins>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full max-w-screen-2xl">
         {items.map((item) => (
-          <div
-            key={item.name}
-            className="bg-gray-900 p-4 rounded-lg shadow-lg relative flex flex-col"
-          >
-            {/* Status Indicator */}
-            <span className="absolute top-2 right-2 text-green-500 text-xs font-bold">
-              🟢 {item.status}
-            </span>
-
-            {/* Item Icon */}
-            <div className="flex justify-center mt-2">
-              <img
-                src={item.icon}
-                alt={item.name}
-                className="h-20 w-20 sm:h-24 sm:w-24 mx-auto object-contain"
-                loading="lazy"
-              />
-            </div>
-
-            {/* Item Name */}
-            <h2 className="text-lg sm:text-xl font-bold text-white mt-4 text-center">
-              {item.name}
-            </h2>
-
-            {/* Value & Demand */}
-            <p className="text-gray-400 text-base sm:text-lg text-center">
-              Value: {item.value.toLocaleString()}
-            </p>
-            <p className="text-gray-400 text-sm sm:text-base text-center">
-              Demand: {item.demand}
-            </p>
-
-            {/* Dropdown for Value Type */}
-            <select
-              className="mt-3 w-full bg-gray-800 text-white text-sm sm:text-base p-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-600"
-              aria-label="Select value type"
-            >
+          <div key={item.name} tabIndex={0} aria-label={`${item.name} Card`} className="relative bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col items-center transition-transform hover:scale-105 focus-within:scale-105">
+            <span className="absolute top-3 right-3 text-green-500 text-xs font-semibold">🟢 {item.status}</span>
+            <div>{item.icon}</div>
+            <h2 className="text-2xl font-bold text-white mt-4">{item.name}</h2>
+            <p className="text-gray-300 mt-2">Value: {item.value.toLocaleString()}</p>
+            <p className="text-gray-400">Demand: {item.demand}</p>
+            <select aria-label="Select Value Type" className="mt-4 bg-gray-700 text-white py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option>Physical Value</option>
               <option>Trade Value</option>
             </select>
-
-            {/* Favorite Button */}
-            <button
-              className="absolute bottom-2 right-2 text-gray-400 hover:text-yellow-400 p-2"
-              aria-label={`Favorite ${item.name}`}
-            >
-              <FaStar className="h-5 w-5" />
+            <button aria-label="Favorite Item" className="mt-4 text-gray-400 hover:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+              <FaStar className="text-2xl" />
             </button>
           </div>
         ))}
       </div>
-
-      {/* Google AdSense Ad Container */}
-      <div className="my-6 flex justify-center">
-        <ins
-          className="adsbygoogle block w-full"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-          data-ad-client="ca-pub-4679619533362780"
-          data-ad-slot="3961900505"
-        ></ins>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: "(adsbygoogle = window.adsbygoogle || []).push({});",
-          }}
-        ></script>
-      </div>
     </div>
   );
 }
-
-export default CommonPage;
