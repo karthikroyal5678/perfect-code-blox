@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import fs from 'fs';
 
-
 export default defineConfig({
   plugins: [
     react(),
@@ -15,7 +14,7 @@ export default defineConfig({
           if (req.url?.endsWith('/sitemap_index.xml')) {
             const sitemapPath = path.resolve(__dirname, 'public/sitemap_index.xml');
             if (fs.existsSync(sitemapPath)) {
-              res.setHeader('Content-Type', 'application/xml'); // Set correct Content-Type
+              res.setHeader('Content-Type', 'public/sitemap_index.xml'); // Set correct Content-Type
               res.end(fs.readFileSync(sitemapPath)); // Serve the sitemap content
               return;
             } else {
