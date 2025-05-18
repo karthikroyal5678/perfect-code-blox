@@ -1,4 +1,6 @@
+User-agent: *
 Disallow:
+
 
 Sitemap: https://bloxfruitsitems.com/sitemap_index.xml
 Sitemap: https://bloxfruitsitems.com/calculator/sitemap_index.xml
